@@ -1,0 +1,76 @@
+/*
+  Custom styles for Trackster App
+*/
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Work Sans';
+  font-size: 1rem;
+}
+
+.header {
+  background-color: rgb(35, 2, 63);
+  padding: 2.75rem 0px;
+}
+
+.header h1 {
+  font-family: 'Righteous';
+  color: rgb(255, 0, 171);
+  font-size: 2.5rem;
+  margin-top: 5px;
+}
+
+.header input {
+  color: rgb(74, 74, 74); /*rgb(191, 191, 191); */
+  border-radius: 19px;
+  height: 35px;
+  margin-right: 0.625rem;
+  margin-top: 5px;
+}
+
+.header .fa-search:hover {
+    background-color: #ff66cc;
+    cursor: pointer;
+}
+
+.header .fa-search {
+    text-align: center;
+    background-color: rgb(255, 0, 171);
+    color: rgb(35, 2, 63);
+    padding: 0.5rem;
+    border-radius: 19px;
+}
+
+.attributes {
+  background-color: rgb(104, 0, 255);
+  color: white;
+  height: 2rem;
+}
+
+.attributes .item {
+  margin-top: 4px;
+}
+
+#song_list {
+  border-bottom: 1px solid rgb(204, 204, 204);
+  display: flex;
+  align-items: center;
+  height: 80px;
+  color: #4a4a4a;
+}
+
+#song_list:hover {
+  background-color: rgb(239, 237, 242);
+}
+
+.fa-play-circle-o {
+    color: rgb(255, 0, 171);
+}
+
+.fa-play-circle-o:hover {
+    color: rgba(255, 0, 171, 0.5);
+    cursor: pointer;
+}
