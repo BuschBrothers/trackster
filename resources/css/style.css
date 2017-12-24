@@ -16,11 +16,12 @@ body {
   padding: 2.75rem 0px;
 }
 
-.header h1 {
+.header #name {
   font-family: 'Righteous';
   color: rgb(255, 0, 171);
   font-size: 2.5rem;
   margin-top: 5px;
+  transition: color 300ms ease-in;
 }
 
 .header input {
