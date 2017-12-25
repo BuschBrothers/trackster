@@ -53,6 +53,15 @@ body {
 
 .attributes .item {
   margin-top: 4px;
+  color: white;
+}
+
+.attributes a {
+  color: white;
+}
+
+.attributes a:hover {
+  cursor: pointer;
 }
 
 #song_list {

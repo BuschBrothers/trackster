@@ -7,6 +7,7 @@ var new_colors = [
                     'coral'
                   ];
 var enters = 0;
+var data_tracks = [];
 
 
 $(document).ready(function() {
@@ -61,9 +62,15 @@ Trackster.searchTracksByTitle = function(title) {
     '&api_key=' + API_KEY + '&format=json',
     datatype: 'jsonp',
     success: function(data) {
-      if (data) {
-        Trackster.renderTracks(data.results.trackmatches.track);
-      }
+      try
+					{
+            data_tracks = data.results.trackmatches.track;
+            Trackster.renderTracks(data_tracks);
+					}
+					catch (e)
+					{
+            // console.log(e);
+					};
     }
   });
   enters++;
@@ -72,3 +79,55 @@ Trackster.searchTracksByTitle = function(title) {
   }
   $('.header #name').css('color', new_colors[enters]);
 };
+
+Trackster.spot = function (attr) {
+  var main_index = 0;
+  var local_index = 0;
+  var new_list = [];
+  if (attr == 'listeners') {
+    while (new_list.length != data_tracks.length) {
+      if (new_list.length <= local_index) {
+        new_list.splice(local_index, 0, data_tracks[main_index]);
+        main_index++;
+        local_index = 0;
+      } else if (parseFloat(data_tracks[main_index][attr]) < parseFloat(new_list[local_index][attr])) {
+        new_list.splice(local_index, 0, data_tracks[main_index]);
+        main_index++;
+        local_index = 0;
+      } else {
+        local_index++;
+      }
+    }
+    new_list.reverse();
+  } else {
+    while (new_list.length != data_tracks.length) {
+      if (new_list.length <= local_index) {
+        new_list.splice(local_index, 0, data_tracks[main_index]);
+        main_index++;
+        local_index = 0;
+      } else if (data_tracks[main_index][attr] < new_list[local_index][attr]) {
+        new_list.splice(local_index, 0, data_tracks[main_index]);
+        main_index++;
+        local_index = 0;
+      } else {
+        local_index++;
+      }
+    }
+  }
+  return new_list;
+};
+
+Trackster.order = function(prop) {
+  var value = prop.id;
+  if (prop.id == 'song') {
+    value = 'name';
+  }
+  data_tracks = Trackster.spot(value);
+  Trackster.renderTracks(data_tracks);
+}
+
+
+
+
+
+//

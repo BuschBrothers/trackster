@@ -25,10 +25,10 @@
       <i id="search" class="fa fa-search fa-2x col-xs-1"></i>
     </div>
     <div class="row attributes">
-      <div class="item col-xs-4 col-xs-offset-2">Song</div>
-      <div class="item col-xs-2">Artist</div>
+      <div class="item col-xs-4 col-xs-offset-2"><a id="song" onclick="Trackster.order(song)">Song</a></div>
+      <div class="item col-xs-2"><a id="artist" onclick="Trackster.order(artist)">Artist</a></div>
       <div class="item col-xs-2">Artwork</div>
-      <div class="item col-xs-2">Listeners</div>
+      <div class="item col-xs-2"><a id="listeners" onclick="Trackster.order(listeners)">Listeners</a></div>
     </div>
   <div class="container-fluid track_list">
     <!-- LIST RETURN FROM JS -->
